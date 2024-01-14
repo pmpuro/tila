@@ -7,7 +7,7 @@ compose-compiler = "1.5.4"
 compose-material3 = "1.1.2"
 androidx-activityCompose = "1.8.2"
 mockative = "2.0.1"
-kotlinx-coroutines-test = "1.7.3"
+coroutines = "1.7.3"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -18,7 +18,8 @@ compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview"
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
 mockative = { module = "io.mockative:mockative", version.ref = "mockative"}
-kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines-test"}
+kotlinx-coroutines-core = { module ="org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines"}
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines"}
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
