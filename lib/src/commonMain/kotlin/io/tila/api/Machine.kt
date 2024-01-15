@@ -1,11 +1,18 @@
 package io.tila.api
 
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.consumeAsFlow
-import kotlinx.coroutines.launch
+import io.tila.impl.Data
 
+
+class Machine(data: DataMap = mapOf()) : Derive {
+    private val appData = Data(data.toMutableMap())
+    override fun derive() = derivatives.forEach { function -> appData.apply(function) }
+
+    fun registerDerivative(derivative: Derivative) = derivatives.add(derivative)
+    fun deregisterDerivative(derivative: (DataMap) -> Map<DataId, Any>) =
+        derivatives.remove(derivative)
+
+    private val derivatives: MutableList<Derivative> = mutableListOf()
+}
 
 /*
 class Machine(
