@@ -20,20 +20,9 @@ class Machine(
     private val state: State = State(),
     coroutineScope: CoroutineScope = MainScope(),
 ) {
-    init {
-        coroutineScope.launch {
-            processEvents()
-        }
-    }
-
     /** run all current events. */
     @Suppress("unused")
     fun run() = Unit
-
-    @Suppress("unused")
-    fun close() {
-        queue.close()
-    }
 
     fun <T> injectState(id: DataId, defaultValue: T? = null): MutableState<T> =
         if (null == defaultValue) {
@@ -41,15 +30,6 @@ class Machine(
         } else {
             state.getData(id, defaultValue)
         }
-
-    fun createEvent(id: EventId, args: DataMap = mapOf()): () -> Unit = {
-        queue
-            .trySend(Event(id, args.toMap()))
-            .getOrThrow()
-    }
-
-    fun registerEventHandlerFor(id: EventId, handler: EventHandler) =
-        handler.also { handlers[id] = it }
 
     /* idea: scope to limit calls of derivative */
     fun registerDerivative(d: Derivative) = with(derivatives) { add(d) }
