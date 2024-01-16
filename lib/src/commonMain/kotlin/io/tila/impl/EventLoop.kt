@@ -1,15 +1,15 @@
 package io.tila.impl
 
+import io.tila.api.ApplyEventHandler
 import io.tila.api.DataMap
 import io.tila.api.EventHandler
 import io.tila.api.EventId
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.consumeAsFlow
 import kotlinx.coroutines.launch
 
-class EventLoop(coroutineScope: CoroutineScope) {
+class EventLoop(coroutineScope: CoroutineScope, val applier: ApplyEventHandler) {
 
     init {
         coroutineScope.launch { processEvents() }
@@ -25,7 +25,7 @@ class EventLoop(coroutineScope: CoroutineScope) {
             with(incomingEvent) {
                 val handler = handlers[id]
                 if (null != handler) {
-                    handler(mapOf(), mapOf())
+                    applier.apply(handler, args)
                 }
             }
         }
