@@ -25,13 +25,12 @@ class EventLoopTest {
     fun `should be able to register an event handler`() = runTest {
         var called = 0
         createEventLoop().run {
-            registerEventHandler(eventId) { appData, args ->
+            registerEventHandler(eventId) { _, _ ->
                 ++called
                 mapOf()
             }
 
-            createEvent(eventId, mapOf())
-                .also { it() }
+            createAndCallEvent(eventId)
             close()
         }
 
@@ -43,14 +42,13 @@ class EventLoopTest {
     fun `should be able to deregister an event handler`() = runTest {
         var called = 0
         createEventLoop().run {
-            registerEventHandler(eventId) { appData, args ->
+            registerEventHandler(eventId) { _, _ ->
                 ++called
                 mapOf()
             }
             deregisterEventHandler(eventId)
 
-            createEvent(eventId, mapOf())
-                .also { it() }
+            createAndCallEvent(eventId)
             close()
         }
 
@@ -61,12 +59,11 @@ class EventLoopTest {
     @Test
     fun `should apply event handler`() = runTest {
         createEventLoop().run {
-            registerEventHandler(eventId) { appData, args ->
+            registerEventHandler(eventId) { _, _ ->
                 mapOf()
             }
 
-            createEvent(eventId, mapOf())
-                .also { it() }
+            createAndCallEvent(eventId)
             close()
         }
 
@@ -76,6 +73,7 @@ class EventLoopTest {
 
     private val eventId = EventId("event")
 
+    @Suppress("UNCHECKED_CAST")
     @Mock
     private val applier = mock(classOf<ApplyEventHandler>())
         .also {
@@ -85,6 +83,12 @@ class EventLoopTest {
                 handler(mapOf(), args)
             }
         }
+
+    private fun EventLoop.createAndCallEvent(id: EventId) {
+        createEvent(id, mapOf())
+            .also { it() }
+    }
+
     private fun TestScope.createEventLoop(): EventLoop = EventLoop(this, applier)
 }
 
