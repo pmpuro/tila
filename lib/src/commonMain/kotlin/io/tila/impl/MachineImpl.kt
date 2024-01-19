@@ -26,10 +26,10 @@ class MachineImpl(
     private val eventHandlerApplier = ApplyEventHandler { handler, args -> handler(appData, args) }
     private val eventLoop = EventLoop(coroutineScope, eventHandlerApplier)
     override fun derive() = derivator.derive()
-    override fun registerDerivative(derivative: Derivative): Boolean =
+    override fun registerDerivative(derivative: Derivative) =
         derivator.registerDerivative(derivative)
 
-    override fun deregisterDerivative(derivative: Derivative): Boolean =
+    override fun deregisterDerivative(derivative: Derivative) =
         derivator.deregisterDerivative(derivative)
 
     override fun registerEventHandler(id: EventId, eventHandler: EventHandler) =
