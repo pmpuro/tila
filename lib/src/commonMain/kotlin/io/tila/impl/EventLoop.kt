@@ -3,13 +3,17 @@ package io.tila.impl
 import io.tila.api.ApplyEventHandler
 import io.tila.api.DataMap
 import io.tila.api.EventHandler
+import io.tila.api.EventHandlerManagement
 import io.tila.api.EventId
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.consumeAsFlow
 import kotlinx.coroutines.launch
 
-class EventLoop(coroutineScope: CoroutineScope, val applier: ApplyEventHandler) {
+class EventLoop(
+    coroutineScope: CoroutineScope,
+    private val applier: ApplyEventHandler,
+) : EventHandlerManagement {
 
     init {
         coroutineScope.launch { processEvents() }
@@ -30,11 +34,11 @@ class EventLoop(coroutineScope: CoroutineScope, val applier: ApplyEventHandler) 
             }
         }
 
-    fun registerEventHandler(id: EventId, eventHandler: EventHandler) {
+    override fun registerEventHandler(id: EventId, eventHandler: EventHandler) {
         handlers[id] = eventHandler
     }
 
-    fun deregisterEventHandler(id: EventId) {
+    override fun deregisterEventHandler(id: EventId) {
         handlers.remove(id)
     }
 
