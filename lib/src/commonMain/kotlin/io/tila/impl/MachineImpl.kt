@@ -36,11 +36,14 @@ class MachineImpl(
         eventLoop.registerEventHandler(id, eventHandler)
 
     override fun deregisterEventHandler(id: EventId) = eventLoop.deregisterEventHandler(id)
-
     override fun <T> injectState(id: DataId, defaultValue: T?): MutableState<T> =
         if (null == defaultValue) {
             uiState.getExistingData(id)
         } else {
             uiState.getData(id, defaultValue)
         }
+
+    override fun close() {
+        eventLoop.close()
+    }
 }

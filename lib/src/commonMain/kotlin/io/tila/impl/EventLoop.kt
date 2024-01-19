@@ -10,10 +10,11 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.consumeAsFlow
 import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalStdlibApi::class)
 class EventLoop(
     coroutineScope: CoroutineScope,
     private val applier: ApplyEventHandler,
-) : EventHandlerManagement {
+) : EventHandlerManagement, AutoCloseable {
 
     init {
         coroutineScope.launch { processEvents() }
@@ -48,8 +49,7 @@ class EventLoop(
             .getOrThrow()
     }
 
-    fun close() {
+    override fun close() {
         queue.close()
     }
-
 }
