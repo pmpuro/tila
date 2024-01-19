@@ -4,9 +4,10 @@ import io.tila.impl.MachineImpl
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 
-interface Machine : Derive, DerivativeManagement, EventHandlerManagement {
+interface Machine : Derive, StateInjection, DerivativeManagement, EventHandlerManagement {
     fun createMachine(
         data: DataMap = mapOf(),
+        initialStateData: StateDataList = listOf(),
         coroutineScope: CoroutineScope = MainScope(),
-    ): Machine = MachineImpl(data, coroutineScope)
+    ): Machine = MachineImpl(data, initialStateData, coroutineScope)
 }
