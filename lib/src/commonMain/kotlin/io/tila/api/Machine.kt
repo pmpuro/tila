@@ -6,7 +6,8 @@ import kotlinx.coroutines.MainScope
 
 @OptIn(ExperimentalStdlibApi::class)
 interface Machine
-    : Derive, StateInjection, DerivativeManagement, EventHandlerManagement, AutoCloseable {
+    : Derive, StateInjection, EventFactory, DerivativeManagement, EventHandlerManagement,
+    AutoCloseable {
     companion object {
         fun create(
             data: DataMap = mapOf(),

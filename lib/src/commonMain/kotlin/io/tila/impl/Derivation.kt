@@ -6,7 +6,7 @@ import io.tila.api.DerivativeManagement
 import io.tila.api.Derive
 
 
-class Derivator(private val derivativeApplier: ApplyDerivative) : Derive, DerivativeManagement {
+class Derivation(private val derivativeApplier: ApplyDerivative) : Derive, DerivativeManagement {
     override fun derive() = derivatives.forEach { function -> derivativeApplier.apply(function) }
 
     override fun registerDerivative(derivative: Derivative) {

@@ -9,19 +9,19 @@ import io.tila.api.ApplyDerivative
 import io.tila.api.DataId
 import io.tila.api.DataMap
 import io.tila.api.Derivative
-import io.tila.impl.Derivator
+import io.tila.impl.Derivation
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertContains
 import kotlin.test.assertEquals
 
-class DerivatorTest {
+class DerivationTest {
 
     @Test
     fun `should call registered derivative`() = runTest {
         var called = 0
 
-        createDerivative().run {
+        createDerivation().run {
             registerDerivative {
                 ++called
                 mapOf()
@@ -34,7 +34,7 @@ class DerivatorTest {
 
     @Test
     fun `should pass data map to derivatives`() = runTest {
-        createDerivative().run {
+        createDerivation().run {
             registerDerivative { dataMap ->
                 assertContains(dataMap, dataA)
                 assertContains(dataMap, dataB)
@@ -48,7 +48,7 @@ class DerivatorTest {
     fun `should be able to deregister a derivative`() = runTest {
         var called = 0
 
-        createDerivative().run {
+        createDerivation().run {
             val derivative: Derivative = {
                 ++called
                 mapOf()
@@ -77,5 +77,5 @@ class DerivatorTest {
             }
         }
 
-    private fun createDerivative() = Derivator(applier)
+    private fun createDerivation() = Derivation(applier)
 }

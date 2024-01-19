@@ -22,15 +22,16 @@ class MachineImpl(
     private val appData = Data(data.toMutableMap())
     private val uiState = State(initialStateData)
     private val derivativeApplier = ApplyDerivative { it(appData) }
-    private val derivator = Derivator(derivativeApplier)
-    private val eventHandlerApplier = ApplyEventHandler { handler, args -> handler(appData, args) }
+    private val derivation = Derivation(derivativeApplier)
+    private val eventHandlerApplier =
+        ApplyEventHandler { handler, args -> handler(appData, args).also { mergeData(it) } }
     private val eventLoop = EventLoop(coroutineScope, eventHandlerApplier)
-    override fun derive() = derivator.derive()
+    override fun derive() = derivation.derive()
     override fun registerDerivative(derivative: Derivative) =
-        derivator.registerDerivative(derivative)
+        derivation.registerDerivative(derivative)
 
     override fun deregisterDerivative(derivative: Derivative) =
-        derivator.deregisterDerivative(derivative)
+        derivation.deregisterDerivative(derivative)
 
     override fun registerEventHandler(id: EventId, eventHandler: EventHandler) =
         eventLoop.registerEventHandler(id, eventHandler)
@@ -42,6 +43,13 @@ class MachineImpl(
         } else {
             uiState.getData(id, defaultValue)
         }
+
+    override fun createEvent(eventId: EventId, args: DataMap): () -> Unit =
+        eventLoop.createEvent(eventId, args)
+
+    fun mergeData(changed: DataMap) = changed.forEach { (k, v) ->
+        appData[k] = v
+    }
 
     override fun close() {
         eventLoop.close()

@@ -14,5 +14,5 @@ class Data(
     override fun apply(
         eventHandler: EventHandler,
         args: DataMap
-    ): DataMap = eventHandler(data, args)
+    ) = eventHandler(data, args)
 }
