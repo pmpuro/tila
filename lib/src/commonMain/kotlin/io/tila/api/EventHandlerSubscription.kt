@@ -1,6 +1,6 @@
 package io.tila.api
 
-interface EventHandlerManagement {
+interface EventHandlerSubscription {
     fun registerEventHandler(id: EventId, eventHandler: EventHandler)
     fun deregisterEventHandler(id: EventId)
 }

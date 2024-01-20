@@ -4,7 +4,7 @@ import io.tila.api.ApplyEventHandler
 import io.tila.api.DataMap
 import io.tila.api.EventFactory
 import io.tila.api.EventHandler
-import io.tila.api.EventHandlerManagement
+import io.tila.api.EventHandlerSubscription
 import io.tila.api.EventId
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.channels.Channel
@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 class EventLoop(
     coroutineScope: CoroutineScope,
     private val applier: ApplyEventHandler,
-) : EventHandlerManagement, AutoCloseable, EventFactory {
+) : EventHandlerSubscription, AutoCloseable, EventFactory {
 
     init {
         coroutineScope.launch { processEvents() }

@@ -1,6 +1,6 @@
 package io.tila.api
 
-interface DerivativeManagement {
+interface DerivativeSubscription {
     fun registerDerivative(derivative: Derivative)
     fun deregisterDerivative(derivative: Derivative)
 }
