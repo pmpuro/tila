@@ -13,6 +13,7 @@ class GenericValueState<T>(
         map[id] = this
     }
 
+    @Suppress("UNCHECKED_CAST")
     override fun setState(new: Any) {
         val newValue = new as T
         mutableState.value = newValue

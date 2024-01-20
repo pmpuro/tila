@@ -68,6 +68,7 @@ class DerivationTest {
     private val value2 = 2
     private val map: DataMap = mapOf(dataA to value1, dataB to value2)
 
+    @Suppress("UNCHECKED_CAST")
     @Mock
     private val applier = mock(classOf<ApplyDerivative>())
         .also {
