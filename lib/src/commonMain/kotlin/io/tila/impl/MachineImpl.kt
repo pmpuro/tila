@@ -21,7 +21,7 @@ class MachineImpl(
 ) : Machine {
     private val appData = Data(data.toMutableMap())
     private val uiState = State(initialStateData)
-    private val derivativeApplier = ApplyDerivative { it(appData) }
+    private val derivativeApplier = ApplyDerivative { it(appData).also { uiState.update(it) } }
     private val derivation = Derivation(derivativeApplier)
     private val eventHandlerApplier =
         ApplyEventHandler { handler, args -> handler(appData, args).also { mergeData(it) } }
