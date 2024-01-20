@@ -24,7 +24,9 @@ class MachineImpl(
     private val derivativeApplier = ApplyDerivative { it(appData).also { uiState.update(it) } }
     private val derivation = Derivation(derivativeApplier)
     private val eventHandlerApplier =
-        ApplyEventHandler { handler, args -> handler(appData, args).also { mergeData(it) } }
+        ApplyEventHandler { handler, args ->
+            handler(appData, args).also { mergeData(it); derive() }
+        }
     private val eventLoop = EventLoop(coroutineScope, eventHandlerApplier)
     override fun derive() = derivation.derive()
     override fun registerDerivative(derivative: Derivative) =
