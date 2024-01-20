@@ -18,3 +18,8 @@ jobs:
           distribution: 'temurin' 
           java-version: '17'
       - run: ./gradlew :lib:testDebugUnitTest
+      - uses: EnricoMi/publish-unit-test-result-action@v2
+        if: ${{ always() && github.actor != 'dependabot[bot]' }}
+        with:
+          check_name: "Unit test results"
+          files: ./lib/build/test-results/testDebugUnitTest/TEST*.xml
