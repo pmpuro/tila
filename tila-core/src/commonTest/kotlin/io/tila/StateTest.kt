@@ -1,6 +1,5 @@
 package io.tila
 
-import io.mockative.verify
 import io.tila.api.DataId
 import io.tila.api.GenericValueState
 import io.tila.impl.State

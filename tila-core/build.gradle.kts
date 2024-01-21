@@ -74,7 +74,7 @@ publishing {
             version = libraryVersion
 
             pom {
-                name = "tila"
+                name = project.name
                 description = "A concise description of my library"
                 url = "https://github.com/pmpuro/tila"
                 licenses {

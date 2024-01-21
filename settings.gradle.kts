@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "tila"
-include(":lib")
+include(":tila-core")
