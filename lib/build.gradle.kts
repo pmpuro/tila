@@ -4,7 +4,13 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.ksp)
+    id("maven-publish")
 }
+
+val libraryVersion = project.properties.getOrDefault("versionName", "0.0.1") as String
+group = "io.tila"
+version = libraryVersion
+
 
 kotlin {
     androidTarget {
@@ -13,6 +19,7 @@ kotlin {
                 jvmTarget = "1.8"
             }
         }
+        publishLibraryVariants("release", "debug")
     }
 
     val xcf = XCFramework()
@@ -23,7 +30,7 @@ kotlin {
     )
         .forEach {
             it.binaries.framework {
-                baseName = "lib"
+                baseName = "tila"
                 xcf.add(this)
                 isStatic = true
             }
@@ -56,5 +63,27 @@ android {
     compileSdk = 34
     defaultConfig {
         minSdk = 29
+    }
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("release") {
+            groupId = "io.tila"
+            artifactId = "tila"
+            version = libraryVersion
+
+            pom {
+                name = "tila"
+                description = "A concise description of my library"
+                url = "https://github.com/pmpuro/tila"
+                licenses {
+                    license {
+                        name = "The Apache License, Version 2.0"
+                        url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                    }
+                }
+            }
+        }
     }
 }
