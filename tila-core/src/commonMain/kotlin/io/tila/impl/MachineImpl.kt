@@ -49,9 +49,7 @@ class MachineImpl(
     override fun createEvent(eventId: EventId, args: DataMap): () -> Unit =
         eventLoop.createEvent(eventId, args)
 
-    override fun sendEvent(eventId: EventId, args: DataMap) {
-        TODO("Not yet implemented")
-    }
+    override fun sendEvent(eventId: EventId, args: DataMap) = eventLoop.sendEvent(eventId, args)
 
     fun mergeData(changed: DataMap) = changed.forEach { (k, v) ->
         appData[k] = v

@@ -33,6 +33,24 @@ class ApplyEventHandlerTest {
     }
 
     @Test
+    fun `should call event handler when send an event immediately`() = runTest {
+        var called = 0
+        createMachineImpl().use {
+            with(it) {
+                registerEventHandler(eventId) { _, _ ->
+                    ++called
+                    mapOf()
+                }
+
+                sendEvent(eventId)
+            }
+        }
+
+        advanceUntilIdle()
+        assertEquals(1, called)
+    }
+
+    @Test
     fun `should merge all given data`() = runTest {
         var called = 0
         val dataList = listOf(id1 to data1, id2 to data2)
