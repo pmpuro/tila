@@ -50,6 +50,10 @@ class EventLoop(
             .getOrThrow()
     }
 
+    override fun sendEvent(eventId: EventId, args: DataMap) {
+        createEvent(eventId, args)()
+    }
+
     override fun close() {
         queue.close()
     }

@@ -63,7 +63,22 @@ class EventLoopTest {
                 mapOf()
             }
 
-            createAndCallEvent(eventId)
+            sendEvent(eventId)
+            close()
+        }
+
+        advanceUntilIdle()
+        verify { applier.apply(any(), any()) }.wasInvoked()
+    }
+
+    @Test
+    fun `should send an event`() = runTest {
+        createEventLoop().run {
+            registerEventHandler(eventId) { _, _ ->
+                mapOf()
+            }
+
+            sendEvent(eventId, mapOf())
             close()
         }
 
