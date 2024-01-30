@@ -10,7 +10,7 @@ interface Machine :
     DerivativeSubscription, EventHandlerSubscription,
     AutoCloseable {
     companion object {
-        fun create(
+        operator fun invoke(
             data: DataMap = mapOf(),
             initialStateData: StateDataList = listOf(),
             coroutineScope: CoroutineScope = MainScope(),

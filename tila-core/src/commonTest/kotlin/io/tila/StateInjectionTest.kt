@@ -12,7 +12,7 @@ class StateInjectionTest {
 
     @Test
     fun `should inject a new state`() = runTest {
-        Machine.create(coroutineScope = this).use {
+        Machine(coroutineScope = this).use {
             with(it) {
                 val state = injectState(id, valueA)
                 assertEquals(valueA, state.value)
@@ -24,7 +24,7 @@ class StateInjectionTest {
 
     @Test
     fun `should inject a state`() = runTest {
-        Machine.create(coroutineScope = this).use {
+        Machine(coroutineScope = this).use {
             with(it) {
                 val state = injectState(id, valueA)
                 assertEquals(valueA, state.value)
