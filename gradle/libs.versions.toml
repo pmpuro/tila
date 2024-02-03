@@ -5,6 +5,7 @@ coroutines = "1.7.3"
 kotlin = "1.9.22"
 ksp = "1.9.22-1.0.17"
 mockative = "2.0.1"
+compatibility = "0.13.2"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -17,3 +18,4 @@ multiplatform-compose-runtime = { module = "org.jetbrains.compose.runtime: runti
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+binary-compatibility-validator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "compatibility" }

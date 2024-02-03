@@ -13,12 +13,15 @@ version = libraryVersion
 
 
 kotlin {
+    explicitApi()
+
     androidTarget {
         compilations.all {
             kotlinOptions {
                 jvmTarget = "1.8"
             }
         }
+
         publishLibraryVariants("release", "debug")
     }
 
