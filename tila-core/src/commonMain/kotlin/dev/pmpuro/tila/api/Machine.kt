@@ -5,12 +5,12 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 
 @OptIn(ExperimentalStdlibApi::class)
-interface Machine :
+public interface Machine :
     Derive, StateInjection, EventFactory,
     DerivativeSubscription, EventHandlerSubscription,
     AutoCloseable {
-    companion object {
-        operator fun invoke(
+    public companion object {
+        public operator fun invoke(
             data: DataMap = mapOf(),
             initialStateData: StateDataList = listOf(),
             coroutineScope: CoroutineScope = MainScope(),

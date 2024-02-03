@@ -4,7 +4,7 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 
 
-class GenericValueState<T>(
+public class GenericValueState<T>(
     private val id: DataId,
     private val initialValue: T,
     private val mutableState: MutableState<T> = mutableStateOf(initialValue),

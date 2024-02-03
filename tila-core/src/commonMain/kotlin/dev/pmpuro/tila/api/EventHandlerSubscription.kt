@@ -1,6 +1,6 @@
 package dev.pmpuro.tila.api
 
-interface EventHandlerSubscription {
-    fun registerEventHandler(id: EventId, eventHandler: EventHandler)
-    fun deregisterEventHandler(id: EventId)
+public interface EventHandlerSubscription {
+    public fun registerEventHandler(id: EventId, eventHandler: EventHandler)
+    public fun deregisterEventHandler(id: EventId)
 }

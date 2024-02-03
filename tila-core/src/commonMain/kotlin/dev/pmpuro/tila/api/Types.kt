@@ -1,12 +1,12 @@
 package dev.pmpuro.tila.api
 
-typealias MutableDataMap = MutableMap<DataId, Any>
-typealias DataMap = Map<DataId, Any>
+public typealias MutableDataMap = MutableMap<DataId, Any>
+public typealias DataMap = Map<DataId, Any>
 
-typealias MutableStateDataMap = MutableMap<DataId, StateData>
-typealias StateDataList = List<StateData>
+public typealias MutableStateDataMap = MutableMap<DataId, StateData>
+public typealias StateDataList = List<StateData>
 
 /** app data, args --> app data */
-typealias EventHandler = (DataMap, DataMap) -> DataMap
+public typealias EventHandler = (DataMap, DataMap) -> DataMap
 /** app data --> ui data (as DataMap to be converted to StateMap) */
-typealias Derivative = (DataMap) -> DataMap
+public typealias Derivative = (DataMap) -> DataMap

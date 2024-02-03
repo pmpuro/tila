@@ -1,5 +1,5 @@
 package dev.pmpuro.tila.api
 
-fun interface ApplyDerivative {
-    fun apply(function: Derivative): DataMap
+public fun interface ApplyDerivative {
+    public fun apply(function: Derivative): DataMap
 }

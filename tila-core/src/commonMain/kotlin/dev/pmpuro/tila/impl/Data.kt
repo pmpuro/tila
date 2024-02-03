@@ -7,7 +7,7 @@ import dev.pmpuro.tila.api.Derivative
 import dev.pmpuro.tila.api.EventHandler
 import dev.pmpuro.tila.api.MutableDataMap
 
-class Data(
+internal class Data(
     private val data: MutableDataMap
 ) : MutableDataMap by data, ApplyDerivative, ApplyEventHandler {
     override fun apply(function: Derivative): DataMap = function(data)

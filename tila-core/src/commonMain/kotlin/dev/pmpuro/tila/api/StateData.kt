@@ -1,7 +1,7 @@
 package dev.pmpuro.tila.api
 
-interface StateData {
-    fun createInto(map: MutableStateDataMap)
-    fun setState(new: Any)
-    fun toState(): Any
+public interface StateData {
+    public fun createInto(map: MutableStateDataMap)
+    public fun setState(new: Any)
+    public fun toState(): Any
 }

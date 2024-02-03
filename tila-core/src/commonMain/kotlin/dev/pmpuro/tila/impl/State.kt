@@ -8,7 +8,7 @@ import dev.pmpuro.tila.api.MutableStateDataMap
 import dev.pmpuro.tila.api.StateData
 import dev.pmpuro.tila.api.StateDataList
 
-class State(initialStateData: StateDataList = listOf()) {
+internal class State(initialStateData: StateDataList = listOf()) {
     private val stateData: MutableStateDataMap = mutableMapOf()
 
     init {

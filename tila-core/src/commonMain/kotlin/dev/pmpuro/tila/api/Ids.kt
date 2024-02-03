@@ -3,7 +3,7 @@ package dev.pmpuro.tila.api
 import kotlin.jvm.JvmInline
 
 @JvmInline
-value class DataId(val id: String)
+public value class DataId(public val id: String)
 
 @JvmInline
-value class EventId(val id: String)
+public value class EventId(public val id: String)

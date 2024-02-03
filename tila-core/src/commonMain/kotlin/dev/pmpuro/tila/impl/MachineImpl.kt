@@ -14,7 +14,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 
 
-class MachineImpl(
+internal class MachineImpl(
     data: DataMap = mapOf(),
     initialStateData: StateDataList = listOf(),
     coroutineScope: CoroutineScope = MainScope(),

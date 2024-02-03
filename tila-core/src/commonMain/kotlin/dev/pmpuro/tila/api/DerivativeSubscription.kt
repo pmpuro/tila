@@ -1,6 +1,6 @@
 package dev.pmpuro.tila.api
 
-interface DerivativeSubscription {
-    fun registerDerivative(derivative: Derivative)
-    fun deregisterDerivative(derivative: Derivative)
+public interface DerivativeSubscription {
+    public fun registerDerivative(derivative: Derivative)
+    public fun deregisterDerivative(derivative: Derivative)
 }

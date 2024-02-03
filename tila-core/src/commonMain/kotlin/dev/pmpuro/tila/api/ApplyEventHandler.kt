@@ -1,5 +1,5 @@
 package dev.pmpuro.tila.api
 
-fun interface ApplyEventHandler {
-    fun apply(eventHandler: EventHandler, args: DataMap): DataMap
+public fun interface ApplyEventHandler {
+    public fun apply(eventHandler: EventHandler, args: DataMap): DataMap
 }

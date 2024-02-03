@@ -6,7 +6,8 @@ import dev.pmpuro.tila.api.DerivativeSubscription
 import dev.pmpuro.tila.api.Derive
 
 
-class Derivation(private val derivativeApplier: ApplyDerivative) : Derive, DerivativeSubscription {
+internal class Derivation(private val derivativeApplier: ApplyDerivative) : Derive,
+    DerivativeSubscription {
     override fun derive() = derivatives.forEach { function -> derivativeApplier.apply(function) }
 
     override fun registerDerivative(derivative: Derivative) {

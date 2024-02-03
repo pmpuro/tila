@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.consumeAsFlow
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalStdlibApi::class)
-class EventLoop(
+internal class EventLoop(
     coroutineScope: CoroutineScope,
     private val applier: ApplyEventHandler,
 ) : EventHandlerSubscription, AutoCloseable, EventFactory {
