@@ -18,6 +18,7 @@ jobs:
           distribution: 'temurin' 
           java-version: '17'
       - run: ./gradlew :tila-core:testDebugUnitTest
+      - run: ./gradlew apiCheck
       - uses: EnricoMi/publish-unit-test-result-action@v2
         if: ${{ always() && github.actor != 'dependabot[bot]' }}
         with:
