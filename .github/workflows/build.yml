@@ -6,20 +6,18 @@ on:
   pull_request:
     branches: [ "main" ]
   merge_group:
-
   workflow_dispatch:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin' 
           java-version: '17'
-      - run: ./gradlew :tila-core:testDebugUnitTest
-      - run: ./gradlew apiCheck
+      - run: ./gradlew build
       - uses: EnricoMi/publish-unit-test-result-action@v2
         with:
           check_name: "Unit test results"
