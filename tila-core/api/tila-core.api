@@ -1,18 +1,18 @@
-public final class dev/pmpuro/tila/api/AccessKt {
-	public static final fun accessData-E_kEZEI (Ljava/util/Map;Ljava/lang/String;)Ljava/lang/Object;
-	public static final fun accessDataOrNull-E_kEZEI (Ljava/util/Map;Ljava/lang/String;)Ljava/lang/Object;
+public final class com/github/pmpuro/tila/api/AccessKt {
+	public static final fun accessData-WywDreE (Ljava/util/Map;Ljava/lang/String;)Ljava/lang/Object;
+	public static final fun accessDataOrNull-WywDreE (Ljava/util/Map;Ljava/lang/String;)Ljava/lang/Object;
 }
 
-public abstract interface class dev/pmpuro/tila/api/ApplyDerivative {
+public abstract interface class com/github/pmpuro/tila/api/ApplyDerivative {
 	public abstract fun apply (Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
 }
 
-public abstract interface class dev/pmpuro/tila/api/ApplyEventHandler {
+public abstract interface class com/github/pmpuro/tila/api/ApplyEventHandler {
 	public abstract fun apply (Lkotlin/jvm/functions/Function2;Ljava/util/Map;)Ljava/util/Map;
 }
 
-public final class dev/pmpuro/tila/api/DataId {
-	public static final synthetic fun box-impl (Ljava/lang/String;)Ldev/pmpuro/tila/api/DataId;
+public final class com/github/pmpuro/tila/api/DataId {
+	public static final synthetic fun box-impl (Ljava/lang/String;)Lcom/github/pmpuro/tila/api/DataId;
 	public static fun constructor-impl (Ljava/lang/String;)Ljava/lang/String;
 	public fun equals (Ljava/lang/Object;)Z
 	public static fun equals-impl (Ljava/lang/String;Ljava/lang/Object;)Z
@@ -25,32 +25,32 @@ public final class dev/pmpuro/tila/api/DataId {
 	public final synthetic fun unbox-impl ()Ljava/lang/String;
 }
 
-public abstract interface class dev/pmpuro/tila/api/DerivativeSubscription {
+public abstract interface class com/github/pmpuro/tila/api/DerivativeSubscription {
 	public abstract fun deregisterDerivative (Lkotlin/jvm/functions/Function1;)V
 	public abstract fun registerDerivative (Lkotlin/jvm/functions/Function1;)V
 }
 
-public abstract interface class dev/pmpuro/tila/api/Derive {
+public abstract interface class com/github/pmpuro/tila/api/Derive {
 	public abstract fun derive ()V
 }
 
-public abstract interface class dev/pmpuro/tila/api/EventFactory {
-	public abstract fun createEvent-XiFnp_w (Ljava/lang/String;Ljava/util/Map;)Lkotlin/jvm/functions/Function0;
-	public abstract fun sendEvent-XiFnp_w (Ljava/lang/String;Ljava/util/Map;)V
+public abstract interface class com/github/pmpuro/tila/api/EventFactory {
+	public abstract fun createEvent-quQPbJ0 (Ljava/lang/String;Ljava/util/Map;)Lkotlin/jvm/functions/Function0;
+	public abstract fun sendEvent-quQPbJ0 (Ljava/lang/String;Ljava/util/Map;)V
 }
 
-public final class dev/pmpuro/tila/api/EventFactory$DefaultImpls {
-	public static synthetic fun createEvent-XiFnp_w$default (Ldev/pmpuro/tila/api/EventFactory;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Lkotlin/jvm/functions/Function0;
-	public static synthetic fun sendEvent-XiFnp_w$default (Ldev/pmpuro/tila/api/EventFactory;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)V
+public final class com/github/pmpuro/tila/api/EventFactory$DefaultImpls {
+	public static synthetic fun createEvent-quQPbJ0$default (Lcom/github/pmpuro/tila/api/EventFactory;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Lkotlin/jvm/functions/Function0;
+	public static synthetic fun sendEvent-quQPbJ0$default (Lcom/github/pmpuro/tila/api/EventFactory;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)V
 }
 
-public abstract interface class dev/pmpuro/tila/api/EventHandlerSubscription {
-	public abstract fun deregisterEventHandler-W5S7Scg (Ljava/lang/String;)V
-	public abstract fun registerEventHandler-XiFnp_w (Ljava/lang/String;Lkotlin/jvm/functions/Function2;)V
+public abstract interface class com/github/pmpuro/tila/api/EventHandlerSubscription {
+	public abstract fun deregisterEventHandler-iKDBgY4 (Ljava/lang/String;)V
+	public abstract fun registerEventHandler-quQPbJ0 (Ljava/lang/String;Lkotlin/jvm/functions/Function2;)V
 }
 
-public final class dev/pmpuro/tila/api/EventId {
-	public static final synthetic fun box-impl (Ljava/lang/String;)Ldev/pmpuro/tila/api/EventId;
+public final class com/github/pmpuro/tila/api/EventId {
+	public static final synthetic fun box-impl (Ljava/lang/String;)Lcom/github/pmpuro/tila/api/EventId;
 	public static fun constructor-impl (Ljava/lang/String;)Ljava/lang/String;
 	public fun equals (Ljava/lang/Object;)Z
 	public static fun equals-impl (Ljava/lang/String;Ljava/lang/Object;)Z
@@ -63,7 +63,7 @@ public final class dev/pmpuro/tila/api/EventId {
 	public final synthetic fun unbox-impl ()Ljava/lang/String;
 }
 
-public final class dev/pmpuro/tila/api/GenericValueState : androidx/compose/runtime/MutableState, dev/pmpuro/tila/api/StateData {
+public final class com/github/pmpuro/tila/api/GenericValueState : androidx/compose/runtime/MutableState, com/github/pmpuro/tila/api/StateData {
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Object;Landroidx/compose/runtime/MutableState;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/Object;Landroidx/compose/runtime/MutableState;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun component1 ()Ljava/lang/Object;
@@ -75,26 +75,26 @@ public final class dev/pmpuro/tila/api/GenericValueState : androidx/compose/runt
 	public fun toState ()Ljava/lang/Object;
 }
 
-public abstract interface class dev/pmpuro/tila/api/Machine : dev/pmpuro/tila/api/DerivativeSubscription, dev/pmpuro/tila/api/Derive, dev/pmpuro/tila/api/EventFactory, dev/pmpuro/tila/api/EventHandlerSubscription, dev/pmpuro/tila/api/StateInjection, java/lang/AutoCloseable {
-	public static final field Companion Ldev/pmpuro/tila/api/Machine$Companion;
+public abstract interface class com/github/pmpuro/tila/api/Machine : com/github/pmpuro/tila/api/DerivativeSubscription, com/github/pmpuro/tila/api/Derive, com/github/pmpuro/tila/api/EventFactory, com/github/pmpuro/tila/api/EventHandlerSubscription, com/github/pmpuro/tila/api/StateInjection, java/lang/AutoCloseable {
+	public static final field Companion Lcom/github/pmpuro/tila/api/Machine$Companion;
 }
 
-public final class dev/pmpuro/tila/api/Machine$Companion {
-	public final fun invoke (Ljava/util/Map;Ljava/util/List;Lkotlinx/coroutines/CoroutineScope;)Ldev/pmpuro/tila/api/Machine;
-	public static synthetic fun invoke$default (Ldev/pmpuro/tila/api/Machine$Companion;Ljava/util/Map;Ljava/util/List;Lkotlinx/coroutines/CoroutineScope;ILjava/lang/Object;)Ldev/pmpuro/tila/api/Machine;
+public final class com/github/pmpuro/tila/api/Machine$Companion {
+	public final fun invoke (Ljava/util/Map;Ljava/util/List;Lkotlinx/coroutines/CoroutineScope;)Lcom/github/pmpuro/tila/api/Machine;
+	public static synthetic fun invoke$default (Lcom/github/pmpuro/tila/api/Machine$Companion;Ljava/util/Map;Ljava/util/List;Lkotlinx/coroutines/CoroutineScope;ILjava/lang/Object;)Lcom/github/pmpuro/tila/api/Machine;
 }
 
-public abstract interface class dev/pmpuro/tila/api/StateData {
+public abstract interface class com/github/pmpuro/tila/api/StateData {
 	public abstract fun createInto (Ljava/util/Map;)V
 	public abstract fun setState (Ljava/lang/Object;)V
 	public abstract fun toState ()Ljava/lang/Object;
 }
 
-public abstract interface class dev/pmpuro/tila/api/StateInjection {
-	public abstract fun injectState-gw8MM2k (Ljava/lang/String;Ljava/lang/Object;)Landroidx/compose/runtime/MutableState;
+public abstract interface class com/github/pmpuro/tila/api/StateInjection {
+	public abstract fun injectState-4H-FHls (Ljava/lang/String;Ljava/lang/Object;)Landroidx/compose/runtime/MutableState;
 }
 
-public final class dev/pmpuro/tila/api/StateInjection$DefaultImpls {
-	public static synthetic fun injectState-gw8MM2k$default (Ldev/pmpuro/tila/api/StateInjection;Ljava/lang/String;Ljava/lang/Object;ILjava/lang/Object;)Landroidx/compose/runtime/MutableState;
+public final class com/github/pmpuro/tila/api/StateInjection$DefaultImpls {
+	public static synthetic fun injectState-4H-FHls$default (Lcom/github/pmpuro/tila/api/StateInjection;Ljava/lang/String;Ljava/lang/Object;ILjava/lang/Object;)Landroidx/compose/runtime/MutableState;
 }
 
