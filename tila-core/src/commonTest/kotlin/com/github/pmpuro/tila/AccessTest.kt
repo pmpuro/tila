@@ -31,8 +31,8 @@ class AccessTest {
     }
 
     @Test
-    fun `should throw for incorrect type`() = runTest {
-        assertFailsWith<ClassCastException> {
+    fun `should throw for incorrect type accessData`() = runTest {
+        assertFailsWith<IllegalArgumentException> {
             createData()
                 .accessData<String>(dataA)
                 .let {
@@ -42,8 +42,8 @@ class AccessTest {
     }
 
     @Test
-    fun `should return null for incorrect type`() = runTest {
-        assertFailsWith<ClassCastException> {
+    fun `should throw for incorrect type accessDataOrNull`() = runTest {
+        assertFailsWith<IllegalArgumentException> {
             createData()
                 .accessDataOrNull<String>(dataB)
                 .let {
@@ -77,7 +77,6 @@ class AccessTest {
     private val dataC = DataId("c")
     private val value1 = 1
     private val value2 = 2
-    private val value3 = 3
     private val map: MutableDataMap = mutableMapOf(dataA to value1, dataB to value2)
     private fun createData(): DataMap = map
 }
