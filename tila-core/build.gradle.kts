@@ -9,7 +9,7 @@ plugins {
 }
 
 val libraryVersion = project.properties.getOrDefault("versionName", "0.0.1") as String
-group = "dev.pmpuro.tila"
+group = "com.github.pmpuro.tila"
 version = libraryVersion
 
 
@@ -63,7 +63,7 @@ kotlin {
 }
 
 android {
-    namespace = "dev.pmpuro.tila"
+    namespace = "com.github.pmpuro.tila"
     compileSdk = 34
     defaultConfig {
         minSdk = 29
@@ -73,7 +73,7 @@ android {
 publishing {
     publications {
         create<MavenPublication>("release") {
-            groupId = "dev.pmpuro.tila"
+            groupId = "com.github.pmpuro.tila"
             artifactId = "tila"
             version = libraryVersion
 
