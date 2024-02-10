@@ -21,7 +21,6 @@ jobs:
       - run: ./gradlew :tila-core:testDebugUnitTest
       - run: ./gradlew apiCheck
       - uses: EnricoMi/publish-unit-test-result-action@v2
-        if: ${{ always() && github.actor != 'dependabot[bot]' }}
         with:
           check_name: "Unit test results"
           files: ./tila-core/build/test-results/testDebugUnitTest/TEST*.xml
