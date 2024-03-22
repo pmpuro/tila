@@ -6,6 +6,11 @@ public abstract interface class com/github/pmpuro/tila/api/ApplyEventHandler {
 	public abstract fun apply (Lkotlin/jvm/functions/Function2;Ljava/util/Map;)Ljava/util/Map;
 }
 
+public final class com/github/pmpuro/tila/api/CreateKt {
+	public static final fun createMachine (Ljava/util/Map;Ljava/util/List;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function1;)Lcom/github/pmpuro/tila/api/Machine;
+	public static synthetic fun createMachine$default (Ljava/util/Map;Ljava/util/List;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/github/pmpuro/tila/api/Machine;
+}
+
 public final class com/github/pmpuro/tila/api/DataId {
 	public static final synthetic fun box-impl (Ljava/lang/String;)Lcom/github/pmpuro/tila/api/DataId;
 	public static fun constructor-impl (Ljava/lang/String;)Ljava/lang/String;
