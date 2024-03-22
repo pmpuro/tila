@@ -12,3 +12,12 @@ public inline fun <reified T> DataMap.accessDataOrNull(id: DataId): T? = getOrEl
         if (it is T) it
         else throw IllegalArgumentException("data $id is accessed as a wrong type")
     }
+
+
+public inline fun <reified T : Any> DataMap.deriveAppDataToStateDirectly(
+    source: DataId,
+    destination: DataId
+): DataMap {
+    val value = accessData<T>(source)
+    return mapOf(destination to value)
+}

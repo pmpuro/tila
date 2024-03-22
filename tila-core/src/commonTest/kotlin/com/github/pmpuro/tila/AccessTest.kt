@@ -5,6 +5,7 @@ import com.github.pmpuro.tila.api.DataMap
 import com.github.pmpuro.tila.api.MutableDataMap
 import com.github.pmpuro.tila.api.accessData
 import com.github.pmpuro.tila.api.accessDataOrNull
+import com.github.pmpuro.tila.api.deriveAppDataToStateDirectly
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -69,6 +70,17 @@ class AccessTest {
             .accessDataOrNull<Int>(dataC)
             .let {
                 assertNull(it, "data does not exists")
+            }
+    }
+
+    @Test
+    fun `should return the same data with destination key`() = runTest {
+        val destination = DataId("d")
+        createData()
+            .deriveAppDataToStateDirectly<Int>(dataA, destination)
+            .let {
+                val result = it.accessData<Int>(destination)
+                assertEquals(result, value1)
             }
     }
 
