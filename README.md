@@ -28,7 +28,9 @@ Also, it makes Composable functions truly transform their state from data.
 * Make the app testable without UI (drive tests by calling click handlers, not through UI)
 
 ## Principles
-- Not tied to Android/OS/ViewModel (Jetpack Compose's MutableState dependency exists)
+
+- Not tied to Android/OS/ViewModel/MainActivity (Compose Multiplatform's MutableState dependency
+  exists)
 - App data and ui state/data are separated
 - Easy to inject a new observed state
 - Extract click handlers from UI code
