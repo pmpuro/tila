@@ -28,7 +28,7 @@ Also, it makes Composable functions truly transform their state from data.
 ## Getting started
 
 See the complete example of an Android app using `tila`
-at https://github.com/pmpuro/TilaAndroidExample.
+at [https://github.com/pmpuro/TilaAndroidExample](https://github.com/pmpuro/TilaAndroidExample/blob/d8ce17cc60114a723254041dd82c82d041767bae/app/src/main/java/com/example/tilaandroidexample/MainActivity.kt).
 
 ### Specify dependency
 
