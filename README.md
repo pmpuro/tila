@@ -24,6 +24,8 @@ Also, it makes Composable functions truly transform their state from data.
 * Simplify UI code
 * Make click handlers testable
 * Pass any number of parameters to Composable functions easily
+* Make composable functions testable (detached from business logic)
+* Make the app testable without UI (drive tests by calling click handlers, not through UI)
 
 ## Principles
 - Not tied to Android/OS/ViewModel (Jetpack Compose's MutableState dependency exists)
