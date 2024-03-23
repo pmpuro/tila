@@ -4,6 +4,17 @@
 
 ## Purpose
 
+```mermaid
+flowchart TD
+;
+    C(app state) -->|derive| D(state)
+    A(composable function) -->|send event| B(event handler)
+    D -->|inject MutableState| A
+    B -->|call| E(business logic)
+    E -->|send event| B
+    B --> C
+```
+
 Tila provides a straightforward way to handle a state in an application.
 It enables to extract click handlers away from UI code making it simple.
 Also, it makes Composable functions truly transform their state from data.
