@@ -8,6 +8,12 @@ Tila provides a straightforward way to handle a state in an application.
 It enables to extract click handlers away from UI code making it simple.
 Also, it makes Composable functions truly transform their state from data.
 
+## Benefits
+
+* Simplify UI code
+* Make click handlers testable
+* Pass any number of parameters to Composable functions easily
+
 ## Principles
 - Not tied to Android/OS/ViewModel (Jetpack Compose's MutableState dependency exists)
 - App data and ui state/data are separated
@@ -20,6 +26,9 @@ Also, it makes Composable functions truly transform their state from data.
 - Testable
 
 ## Getting started
+
+See the complete example of an Android app using `tila`
+at https://github.com/pmpuro/TilaAndroidExample.
 
 ### Specify dependency
 
