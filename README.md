@@ -12,7 +12,7 @@ flowchart TD
     D -->|inject MutableState| A
     B -->|call| E(business logic)
     E -->|send event| B
-    B --> C
+    B -->|update| C
 ```
 
 Tila provides a straightforward way to handle a state in an application.
