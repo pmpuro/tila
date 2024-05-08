@@ -4,6 +4,7 @@
     "config:recommended"
   ],
   "prHourlyLimit": 1,
+  "prConcurrentLimit": 1,
   "packageRules": [
     {
       "description": "Automerge non-major updates",
