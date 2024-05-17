@@ -44,7 +44,7 @@ kotlin {
         configurations
             .filter { it.name.startsWith("ksp") && it.name.contains("Test") }
             .forEach {
-                add(it.name, "io.mockative:mockative-processor:2.2.0")
+                add(it.name, "io.mockative:mockative-processor:2.2.1")
             }
     }
 
