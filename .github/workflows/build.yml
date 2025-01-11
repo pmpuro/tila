@@ -18,7 +18,7 @@ jobs:
           distribution: 'temurin' 
           java-version: '17'
       - run: ./gradlew apiCheck build
-      - uses: mikepenz/action-junit-report@v4
+      - uses: mikepenz/action-junit-report@v5
         if: success() || failure()
         with:
           report_paths: './tila-core/build/test-results/testDebugUnitTest/TEST*.xml'
